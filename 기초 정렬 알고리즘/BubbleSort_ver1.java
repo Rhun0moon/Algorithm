@@ -1,20 +1,16 @@
 import java.util.Scanner;
-public class SelectionSort_ver1{
-    public static void selectionSort(int[] arr, int len){        
-        int min, index=0, temp;
-        for(int i=0; i<len; i++){
-            min = 100;
-            for(int j=i; j<len; j++){
-                if(arr[j] < min){
-                    min = arr[j];
-                    index = j;
+public class BubbleSort_ver1 {
+    public static void bubbleSort(int[] arr, int len){
+        int temp;
+        for(int i=len; i>0; i--){
+            for(int j=0; j<i-1; j++){
+                if(arr[j] > arr[j+1]){
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
                 }
             }
-            temp = arr[index];
-            arr[index] = arr[i];
-            arr[i] = temp;
         }
-
     }
     public static void numprint(int[] arr){
 		System.out.print("[ ");
@@ -23,8 +19,8 @@ public class SelectionSort_ver1{
         }
         System.out.println("]");
 	}
-	
-	public static void main(String[] args) {
+
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 		System.out.print("배열 길이 입력 : ");
         int len = sc.nextInt();
@@ -38,10 +34,10 @@ public class SelectionSort_ver1{
         System.out.print("정렬 전 : ");
         numprint(arr);
 
-        selectionSort(arr, len);
+        bubbleSort(arr, arr.length);
 
         System.out.print("정렬 후 : ");
         numprint(arr);
-
-	}
+        
+    }
 }
